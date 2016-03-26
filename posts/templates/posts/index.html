@@ -1,0 +1,92 @@
+{% extends "posts/base.html" %}
+
+{# page title #}
+{% block head_title %} DasFun.cn {% endblock %}
+
+{# head js add google analytics #}
+{% block head_js %}
+<!-- GOOGLE Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-51711246-7', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+{% endblock %}
+
+{# main body #}
+{% block main_body %}
+
+    {% load staticfiles %}
+
+    <div id="index-container" class="container">
+        <div class="row">
+
+            {% for p in posts %}
+                <div class="df-card-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    {% include 'posts/components/card.html' with post=p %}
+                </div>
+            {% empty %}
+                <div>Sorry, no posts are available.</div>
+            {% endfor %}
+
+        </div>
+
+        <!-- pagination -->
+        <div class="row df-paginator-center">
+            <!-- page controls -->
+            <ul class="df-paginator">
+                <!-- previous page btn -->
+                {% if prev_page %}
+                    <li class="page-item">
+                        <a href="/postlist/{{ prev_page }}">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a>
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                    </li>
+                {% endif %}
+
+                <!-- page shortcut btn -->
+                {% for page in page_range %}
+                    {% if page == cur_page %}
+                    <li class="page-item selected">
+                        <a href="/postlist/{{ page }}">{{ page }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a href="/postlist/{{ page }}">{{ page }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- next page btn -->
+                {% if next_page %}
+                    <li class="page-item">
+                        <a href="/postlist/{{ next_page }}">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a>
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                {% endif %}
+
+
+            </ul>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "posts/base.html" %}
+
+{% load staticfiles %}
+
+{# page title #}
+{% block head_title %} DasFun | 后台审核 {% endblock %}
+
+{# page header #}
+{% block main_header %}
+    {% include "posts/review/review_header.html" %}
+{% endblock main_header %}
+
+{# main body #}
+{% block main_body %}
+    <div id="review-page-container" class="container">
+        <div class="row">
+
+            <!-- tab header -->
+            <ul class="nav nav-pills" id="review-index-tab">
+                <li role="presentation" class="active">
+                    <a href="#pending" aria-controls="pending" role="tab" data-toggle="tab">
+                      待定
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#rejected" aria-controls="rejected" role="tab" data-toggle="tab">
+                      未通过
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#approved" aria-controls="approved" role="tab" data-toggle="tab">
+                      已通过
+                    </a>
+              </li>
+            </ul>
+
+            <!-- tab content -->
+            <div class="tab-content">
+                <!-- pending posts -->
+                <div role="tabpanel" class="tab-pane active" id="pending">
+                    {% for p in pending %}
+                        <div class="df-card-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        {% include 'posts/review/review_card.html' with post=p %}
+                        </div>
+                    {% empty %}
+                        <h3>&nbsp;&nbsp;&nbsp;&nbsp;没有待定审核的帖子.</h3>
+                    {% endfor %}
+                </div>
+                <!-- rejected posts -->
+                <div role="tabpanel" class="tab-pane" id="rejected">
+                    {% for p in rejected %}
+                        <div class="df-card-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        {% include 'posts/review/review_card.html' with post=p %}
+                        </div>
+                    {% empty %}
+                        <h3>&nbsp;&nbsp;&nbsp;&nbsp;没有未通过审核的帖子.</h3>
+                    {% endfor %}
+                </div>
+                <!-- approved posts -->
+                <div role="tabpanel" class="tab-pane" id="approved">
+                    {% for p in approved %}
+                        <div class="df-card-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        {% include 'posts/review/review_card.html' with post=p %}
+                        </div>
+                    {% empty %}
+                        <h3>&nbsp;&nbsp;&nbsp;&nbsp;没有已通过审核的帖子.</h3>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{# additional javascript #}
+{% block tail_js %}
+    <script src="{% static "js/review.js" %}" type="text/javascript"></script>
+{% endblock %}

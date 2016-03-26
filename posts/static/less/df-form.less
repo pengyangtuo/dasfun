@@ -1,0 +1,46 @@
+.df-form{
+
+  &.form-horizontal .form-group{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .form-cat{
+    text-align: center;
+
+    .form-cat-label{
+      margin: 4px 15px;
+      cursor: pointer;
+
+      input[type="radio"]{
+        display: none;
+      }
+
+      i{
+        color: @disable-text-color;
+        font-size: 40px;
+
+        span{
+          font-size: 12px;
+          display: block;
+        }
+      }
+
+      input[type="radio"]:checked + i{
+          color: @red;
+      }
+
+      &:hover{
+        i{
+          color: @secondary-text-color;
+        }
+      }
+    }
+  }
+
+  .form-group{
+    .help-block{
+      display: none;
+    }
+  }
+}

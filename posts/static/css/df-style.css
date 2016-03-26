@@ -1,0 +1,577 @@
+/*
+  Global size setup
+ */
+/*
+  Color codes
+ */
+/* shadow */
+* {
+  font-family: "Open Sans", "Microsoft YaHei", "Microsoft JhengHei", "STHeiti", "MingLiu";
+}
+body {
+  background-color: #eeeeee;
+}
+a,
+a:hover,
+a:active,
+a:visited {
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: none;
+}
+/* colored text */
+i.green,
+a.green,
+p.green,
+label.green,
+span.green,
+h1.green,
+h2.green,
+h3.green,
+h4.green,
+h5.green,
+h6.green {
+  color: #4caf50;
+}
+i.red,
+a.red,
+p.red,
+label.red,
+span.red,
+h1.red,
+h2.red,
+h3.red,
+h4.red,
+h5.red,
+h6.red {
+  color: #f44336;
+}
+/* Class style */
+/*
+    Page header style
+ */
+.df-header {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  padding-top: 50px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+}
+.df-header .logo {
+  z-index: 2;
+}
+.df-header .logo img {
+  zoom: 20%;
+}
+.df-header .header-verbiage {
+  z-index: 2;
+  color: white;
+  position: relative;
+  margin: 0px auto 20px auto;
+}
+.df-header a {
+  z-index: 2;
+  position: relative;
+}
+.df-header .header-bg {
+  opacity: 0.8;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: url('../img/bg.JPG') no-repeat;
+  background-size: cover;
+}
+/* Tablets or bigger */
+@media (min-width: 768px) {
+  .df-header .header-bg {
+    background: url('../img/bg-m.png') no-repeat;
+    background-size: cover;
+  }
+}
+.df-footer {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: auto;
+  background-color: #2f2f2f;
+  color: white;
+  padding: 30px 0px;
+}
+.df-footer .logo {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+.df-footer .logo img {
+  zoom: 20%;
+}
+.df-footer .footer-note {
+  font-size: 12px;
+  color: white;
+}
+.df-footer .footer-note a {
+  color: white;
+}
+.df-footer .footer-note.small {
+  color: #bdbdbd;
+}
+.df-footer .footer-link {
+  margin-bottom: 10px;
+  display: block;
+  font-weight: bold;
+  color: white;
+}
+.df-footer .footer-qrcode {
+  height: 100px;
+  width: 100px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+}
+.df-footer .footer-qrcode canvas {
+  height: 90px;
+  width: 90px;
+}
+.df-card-wrapper {
+  padding: 7px;
+}
+.df-card {
+  border-radius: 2.5px;
+  height: 320px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+}
+.df-card .card-thumbnail,
+.df-card .card-text {
+  position: relative;
+  width: 100%;
+}
+.df-card .card-thumbnail {
+  height: 260px;
+  line-height: 260px;
+  vertical-align: middle;
+  text-align: center;
+  overflow: hidden;
+}
+.df-card .card-thumbnail img,
+.df-card .card-thumbnail iframe {
+  width: 100%;
+  height: auto;
+}
+.df-card .card-thumbnail i.fa {
+  font-size: 80px;
+  color: rgba(0, 0, 0, 0.38);
+}
+.df-card .card-text {
+  height: 60px;
+  border-top: solid 1px rgba(0, 0, 0, 0.38);
+  padding: 10px 15px;
+}
+.df-card .card-text p {
+  margin-bottom: 0px;
+}
+.df-card .card-text .card-date {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.38);
+}
+.df-card .card-text .card-title {
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  overflow: hidden;
+}
+.df-card .card-text .card-title a {
+  display: inline-block;
+  width: calc(100% - 20px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.df-card .card-text .card-title i {
+  float: right;
+  color: rgba(0, 0, 0, 0.38);
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .df-card-wrapper {
+    padding: 15px;
+  }
+}
+.btn:active,
+.btn:focus,
+.btn:visited {
+  outline: none !important;
+}
+.df-trans-btn {
+  box-sizing: border-box;
+  background-color: transparent;
+  opacity: 0.8;
+}
+.df-trans-btn:hover {
+  padding: 5px 11px;
+  border: 2px solid rgba(0, 0, 0, 0.38);
+  font-weight: bold;
+  background-color: transparent;
+}
+.df-trans-btn.red {
+  color: #f44336;
+  border-color: #f44336;
+}
+.df-trans-btn.red:hover {
+  border-color: #f44336;
+}
+.df-trans-btn.red:active {
+  opacity: 0.6;
+}
+.df-trans-btn.green {
+  color: #4caf50;
+  border-color: #4caf50;
+}
+.df-trans-btn.green:hover {
+  border-color: #4caf50;
+}
+.df-trans-btn.green:active {
+  opacity: 0.6;
+}
+.df-btn {
+  box-sizing: border-box;
+  color: white;
+  border: 0;
+}
+.df-btn:hover {
+  opacity: 0.8;
+  color: white;
+}
+.df-btn.red {
+  background-color: #f44336;
+}
+.df-btn.red:active {
+  opacity: 0.6;
+  color: white;
+}
+.df-square-btn.lg {
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+}
+.df-square-btn.img {
+  height: 144px;
+  width: 144px;
+  border-width: 4px;
+}
+.df-square-btn.dashed {
+  background-color: transparent;
+  border-style: dashed;
+  border-color: rgba(0, 0, 0, 0.38);
+  color: rgba(0, 0, 0, 0.38);
+}
+.df-square-btn.dashed:hover {
+  border-color: #f44336;
+  color: #f44336;
+  opacity: 0.8;
+}
+.df-square-btn.dashed:active {
+  opacity: 1;
+  outline: none;
+}
+.df-square-btn.dashed:focus {
+  outline: none;
+}
+.df-form.form-horizontal .form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.df-form .form-cat {
+  text-align: center;
+}
+.df-form .form-cat .form-cat-label {
+  margin: 4px 15px;
+  cursor: pointer;
+}
+.df-form .form-cat .form-cat-label input[type="radio"] {
+  display: none;
+}
+.df-form .form-cat .form-cat-label i {
+  color: rgba(0, 0, 0, 0.38);
+  font-size: 40px;
+}
+.df-form .form-cat .form-cat-label i span {
+  font-size: 12px;
+  display: block;
+}
+.df-form .form-cat .form-cat-label input[type="radio"]:checked + i {
+  color: #f44336;
+}
+.df-form .form-cat .form-cat-label:hover i {
+  color: rgba(0, 0, 0, 0.54);
+}
+.df-form .form-group .help-block {
+  display: none;
+}
+.df-content-container {
+  max-width: 800px;
+  background-color: white;
+  padding: 0 28px 40px 28px;
+  min-height: 600px;
+}
+.df-content-note {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+}
+.df-content-note a {
+  color: #f44336;
+}
+.df-content-note a:hover {
+  text-decoration: underline;
+}
+.df-content img {
+  margin: 10px 5px;
+  width: auto;
+  max-width: 100%;
+}
+.df-content iframe {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  width: 600px;
+  height: 400px;
+  display: block;
+}
+.df-gallery .fimg-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.df-gallery .fimg-wrapper .fimg {
+  width: 100%;
+}
+.df-gallery .fimg-wrapper .fimg img {
+  width: 100%;
+}
+.df-gallery .timg-wrapper {
+  border-top: solid 1px rgba(0, 0, 0, 0.12);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+  padding: 20px 0px;
+  width: 100%;
+}
+.df-gallery .timg-wrapper .timg {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  vertical-align: center;
+  display: inline-block;
+  overflow: hidden;
+  float: left;
+  margin: 5px;
+  cursor: pointer;
+}
+.df-gallery .timg-wrapper .timg:hover {
+  opacity: 0.9;
+}
+.df-gallery .timg-wrapper .timg:active {
+  opacity: 0.7;
+}
+.df-gallery .timg-wrapper .timg.active {
+  border-bottom: 4px solid #f44336;
+}
+.df-gallery .timg-wrapper .timg img {
+  width: 100%;
+  margin: 0px;
+}
+.df-note {
+  margin-top: 20px;
+  color: gray;
+  font-size: 12px;
+}
+.df-paginator-center {
+  text-align: center;
+}
+.df-paginator-center .df-paginator {
+  display: inline-block;
+}
+.df-paginator {
+  margin: 10px auto;
+  list-style: none;
+  width: auto;
+  padding: 0px;
+}
+.df-paginator li {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5px;
+}
+.df-paginator li a {
+  display: block;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  position: absolute;
+}
+.df-paginator li a .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+.df-paginator li:hover {
+  background-color: #bdbdbd;
+}
+.df-paginator li:hover a {
+  color: white;
+}
+.df-paginator li.selected {
+  background-color: #e91e63;
+}
+.df-paginator li.selected a {
+  color: white;
+}
+.df-paginator li.disabled:hover {
+  background-color: transparent;
+}
+.df-paginator li.disabled a {
+  color: #bdbdbd;
+  pointer-events: none;
+}
+/* iPhone 6 */
+@media (max-width: 768px) {
+  .df-paginator li {
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+  }
+  .df-paginator li a {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+  }
+}
+/* iphone 5 */
+@media (max-width: 320px) {
+  .df-paginator li {
+    height: 35px;
+    width: 35px;
+    margin: 1px;
+  }
+  .df-paginator li a {
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+  }
+}
+/* Page style */
+/* general form setup */
+#post-form #article-section,
+#post-form #img-section,
+#post-form #video-section {
+  visibility: hidden;
+  display: none;
+}
+/* article form */
+#post-form.article #article-section {
+  visibility: visible;
+  display: block;
+}
+/* image form */
+#post-form.image #img-section {
+  visibility: visible;
+  display: block;
+  position: relative;
+  height: auto;
+}
+#post-form.image #img-section div.image-list {
+  display: block;
+}
+#post-form.image #img-section div.img-placeholder {
+  position: relative;
+  float: left;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  display: inline-block;
+  height: 144px;
+  width: 144px;
+}
+#post-form.image #img-section div.img-placeholder img {
+  height: 144px;
+  width: 144px;
+  border: dashed 4px transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#post-form.image #img-section div.img-placeholder input[type="file"] {
+  position: absolute;
+  left: -999px;
+}
+#post-form.image #img-section div.img-placeholder .img-delete {
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: rgba(0, 0, 0, 0.38);
+  cursor: pointer;
+  font-size: 22px;
+  opacity: 0;
+}
+#post-form.image #img-section div.img-placeholder .img-delete:hover {
+  color: #f44336;
+}
+#post-form.image #img-section div.img-placeholder .img-delete:active {
+  opacity: 0.8;
+}
+#post-form.image #img-section div.img-placeholder:hover img {
+  border-color: rgba(0, 0, 0, 0.38);
+}
+#post-form.image #img-section div.img-placeholder:hover .img-delete {
+  opacity: 1;
+}
+/* video form */
+#post-form.video #video-section {
+  visibility: visible;
+  display: block;
+}
+/* stuff form */
+#post-form.stuff #article-section {
+  visibility: visible;
+  display: block;
+}
+.qeditor_preview {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#index-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/*
+    Index page
+ */
+#review-page-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#review-index-tab {
+  padding: 7px;
+}
+/*
+    Detail pages
+ */
+#review-action-container {
+  max-width: 800px;
+  margin: 20px auto;
+  border: dashed rgba(0, 0, 0, 0.38) 3px;
+  border-radius: 3px;
+}

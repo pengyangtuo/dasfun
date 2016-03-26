@@ -1,0 +1,40 @@
+{# Card template #}
+<div class="df-card">
+    <div class="card-thumbnail">
+        {% block card-thumbnail %}
+            <a href="/detail/{{ post.id }}" target="_blank">
+            {% if post.disp_thumbnail %}
+                <img src="{{ post.disp_thumbnail.url }}" alt="{{ post.title }}">
+            {% else %}
+                <i class="fa fa-picture-o"></i>
+            {% endif %}
+            </a>
+        {% endblock %}
+    </div>
+    <div class="card-text">
+        <p class="card-title">
+{#                <i class="fa fa-heart"></i>#}
+            {% if post.category.id == 1 %}
+                <i class="fa fa-newspaper-o"></i>
+            {% elif post.category.id == 2 %}
+                <i class="fa fa-picture-o"></i>
+            {% elif post.category.id == 3 %}
+                <i class="fa fa-video-camera"></i>
+            {% elif post.category.id == 4 %}
+                <i class="fa fa-shopping-cart"></i>
+            {% else %}
+            {% endif %}
+
+            {% block card-url %}
+                <a href="/detail/{{ post.id }}" target="_blank">
+                    {{ post.title }}
+                </a>
+            {% endblock %}
+        </p>
+        <p class="card-date">
+            {% block card-date %}
+                {{ post.approve_datetime|date:"Y-m-d D" }}
+            {% endblock %}
+        </p>
+    </div>
+</div>

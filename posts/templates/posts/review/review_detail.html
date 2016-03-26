@@ -1,0 +1,86 @@
+{%  extends 'posts/detail.html' %}
+
+{% load staticfiles %}
+
+{# page header #}
+{% block main_header %}
+    {% include "posts/review/review_header.html" %}
+{% endblock %}
+
+{# head js remove google analytics #}
+{% block head_js %}
+    <!-- remove google analytics -->
+{% endblock %}
+
+{# review block #}
+{% block review_block %}
+    <div id="review-action-container" class="container">
+        <h4>审核操作</h4>
+        <form class="form-horizontal df-form article"
+                      method="POST"
+                      action="/review_save/{{ post.id }}">
+                    {% csrf_token %}
+
+            <!-- tag selection -->
+            <div class="form-group">
+                <label class="control-label" for="">加注标签</label>
+                <div class="checkbox">
+                    {% for t in tags %}
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="tag-{{ t.id }}" value="tag-{{ t.id }}" name="tag-{{ t.id }}"
+                                {% if t in post.tags.all %}
+                                    checked
+                                {% endif %}
+                            >{{ t.name }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class="input-group">
+                        <input type="text" id="review-detail-tag-input" class="form-control" placeholder="添加新标签">
+                        <span class="input-group-btn">
+                            <button id="review-detail-add-tag" class="btn df-trans-btn green" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- status change -->
+            <div class="form-group">
+                <label class="control-label" for="status">审核结果</label>
+                <br>
+                <label class="radio-inline">
+                    <input type="radio" name="status" id="approved" value="1"
+                    {% if post.status == 1 %} checked {% endif %}
+                    >已通过
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="status" id="pending" value="0"
+                    {% if post.status == 0 %} checked {% endif %}
+                    >待定
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="status" id="rejected" value="2"
+                    {% if post.status == 2 %} checked {% endif %}
+                    >未通过
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn df-trans-btn red" id="submit">保存</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{# submit date #}
+{% block detail-date %}
+    上传时间 {{ post.submit_datetime|date:"Y-m-d D" }}
+{% endblock %}
+
+{# additional javascript#}
+{% block tail_js %}
+    <script src="{% static "js/review.js" %}" type="text/javascript"></script>
+{% endblock %}

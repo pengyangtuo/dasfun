@@ -1,0 +1,24 @@
+{% extends 'posts/base.html' %}
+
+{# page title #}
+{% block head_title %} DasFun | 上传成功 {% endblock %}
+
+{# page body #}
+{% block main_body %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <!-- title -->
+            {% if title %}
+                <h2>{{ title }} <i class="green fa fa-check"></i></h2>
+            {% else %}
+                <h2>上传成功! 请等待审核. <i class="green fa fa-check"></i></h2>
+            {% endif %}
+
+            <!-- success message -->
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

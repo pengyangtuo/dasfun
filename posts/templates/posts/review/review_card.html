@@ -1,0 +1,21 @@
+{% extends "posts/components/card.html" %}
+
+{% block card-thumbnail %}
+    <a href="/review_detail/{{ post.id }}" target="_blank">
+    {% if post.disp_thumbnail %}
+        <img src="{{ post.disp_thumbnail.url }}" alt="{{ post.title }}">
+    {% else %}
+        <i class="fa fa-picture-o"></i>
+    {% endif %}
+    </a>
+{% endblock %}
+
+{% block card-url %}
+    <a href="/review_detail/{{ post.id }}" target="_blank">
+        {{ post.title }}
+    </a>
+{% endblock %}
+
+{% block card-date %}
+    上传时间 {{ post.submit_datetime|date:"Y-m-d D" }}
+{% endblock %}

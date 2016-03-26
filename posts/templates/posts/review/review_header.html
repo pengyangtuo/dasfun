@@ -1,0 +1,19 @@
+<!-- add buttons to page header -->
+{% load staticfiles %}
+
+<div class="df-header">
+    <div class="overlay"></div>
+    <a class="logo" href="/">
+        <img src="{% static "img/logo.png" %}" alt="Das Fun">
+    </a>
+    <div class="header-verbiage">
+        专注和你分享有趣的事
+    </div>
+    <a href="/submit"><button class="btn df-trans-btn red">投稿</button></a>
+    <a href="/review_logout">
+       <button class="btn df-trans-btn green">登出后台</button>
+    </a>
+    <a href="/review">
+       <button class="btn df-trans-btn green">审核首页</button>
+    </a>
+</div>

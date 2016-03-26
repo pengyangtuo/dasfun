@@ -1,0 +1,106 @@
+.btn{
+  &:active, &:focus, &:visited{
+    outline: none !important;
+  }
+}
+
+.df-trans-btn{
+  box-sizing: border-box;
+  background-color: transparent;
+  opacity: 0.8;
+
+  &:hover{
+    //color: @disable-text-color;
+    padding: 5px 11px;
+    border: 2px solid @disable-text-color;
+    font-weight: bold;
+    background-color: transparent;
+  }
+
+  &.red{
+    color: @red;
+    border-color: @red;
+
+    &:hover{
+      border-color: @red;
+    }
+
+    &:active{
+      opacity: 0.6;
+    }
+  }
+
+  &.green{
+    color: @green;
+    border-color: @green;
+
+    &:hover{
+      border-color: @green;
+    }
+
+    &:active{
+      opacity: 0.6;
+    }
+  }
+}
+
+.df-btn{
+  box-sizing: border-box;
+  color: white;
+  border: 0;
+
+  &:hover{
+    opacity: 0.8;
+    color: white;
+  }
+
+  &.red{
+    background-color: @red;
+
+    &:active{
+      opacity: 0.6;
+      color: white;
+    }
+  }
+}
+
+.df-square-btn{
+  &.lg{
+    @size: 50px;
+
+    border: 2px solid black;
+    height: @size;
+    width: @size;
+    font-size: 20px;
+  }
+
+  &.img{
+    @size: 144px;
+
+    height: @size;
+    width: @size;
+    border-width: 4px;
+  }
+
+  &.dashed{
+    background-color: transparent;
+    border-style:dashed;
+    border-color: @disable-text-color;
+    color: @disable-text-color;
+
+    &:hover{
+      border-color: @red;
+      color: @red;
+      opacity: 0.8;
+    }
+
+    &:active{
+      opacity: 1;
+      outline: none;
+    }
+
+    &:focus{
+      outline: none;
+    }
+  }
+}

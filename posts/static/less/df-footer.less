@@ -1,0 +1,55 @@
+.df-footer{
+  position:relative;
+  bottom: 0px;
+  width: 100%;
+  height: @footer-height;
+  background-color: #2f2f2f;
+  color: white;
+  padding: 30px 0px;
+
+  .logo{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+    img{
+      zoom: 20%;
+    }
+  }
+
+  .footer-note{
+    font-size: 12px;
+    color: white;
+
+    a{
+      color: white;
+    }
+
+    &.small{
+      //font-size: 10px;
+      color: @gray;
+    }
+  }
+
+  .footer-link{
+    margin-bottom: 10px;
+    display: block;
+    font-weight: bold;
+    color: white;
+  }
+
+  .footer-qrcode{
+    @size: 100px;
+    height: @size;
+    width: @size;
+    padding: 5px;
+    background-color: @divider-color;
+    border-radius: 3px;
+
+    canvas{
+      @size: 90px;
+      height: @size;
+      width: @size;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{% extends "posts/base.html" %}
+
+{# page title #}
+{% block head_title %} DasFun | 你是管理员吗? {% endblock %}
+
+{# main body #}
+{% block main_body %}
+    <div id="detail-container" class="container df-content-container">
+        <div class="row">
+            <div class="page-header">
+                <h2>后台登录</h2>
+            </div>
+            <form class="form-horizontal df-form article"
+                  method="POST"
+                  action="/review_login/">
+                {% csrf_token %}
+
+                {% if err_msg %}
+                    <div class="alert alert-danger" role="alert">{{ err_msg }}</div>
+                {% endif %}
+
+                <!-- post category selection -->
+                <div class="form-group">
+                    <label class="control-label">用户名</label>
+                    <input class="form-control" type="text" placeholder="用户名" name="user" id="user">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label>
+                    <input class="form-control" type="password" placeholder="密码" name="password" id="password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn df-trans-btn red" id="submit">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

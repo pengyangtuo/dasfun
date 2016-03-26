@@ -1,0 +1,83 @@
+.df-card-wrapper{
+  padding: 7px;
+}
+
+.df-card{
+  @height: 320px;
+  @thumbnail-height: 260px;
+  @text-height: @height - @thumbnail-height;
+  @border-radius: 2.5px;
+
+  border-radius: @border-radius;
+  height: @height;
+  background-color: white;
+  box-shadow: @card-shadow;
+  overflow: hidden;
+
+  .card-thumbnail,.card-text{
+    position: relative;
+    width: 100%;
+  }
+
+  .card-thumbnail{
+    height: @thumbnail-height;
+    line-height: @thumbnail-height;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+
+    img, iframe{
+      width: 100%;
+      height: auto;
+    }
+
+    i.fa{
+      font-size: 80px;
+      color: @disable-text-color;
+    }
+  }
+
+  .card-text{
+    height: @text-height;
+
+    border-top: solid 1px @disable-text-color;
+    padding: 10px 15px;
+
+    p{
+      margin-bottom: 0px;
+    }
+
+    .card-date{
+      font-size: 12px;
+      color: @disable-text-color;
+    }
+
+    .card-title{
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%;
+      overflow: hidden;
+
+      a{
+        display: inline-block;
+        width: ~"calc(100% - 20px)";
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      i{
+        float: right;
+        color: @disable-text-color;
+        cursor: pointer;
+      }
+
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .df-card-wrapper{
+    padding: 15px;
+  }
+}

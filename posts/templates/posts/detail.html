@@ -1,0 +1,114 @@
+{% extends "posts/base.html" %}
+
+{% load staticfiles %}
+
+{# page title #}
+{% block head_title %} {{ post.title }} {% endblock %}
+
+{# head js add google analytics #}
+{% block head_js %}
+<!-- GOOGLE Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-51711246-7', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+{% endblock %}
+
+{# page body #}
+{% block main_body %}
+
+    {% block review_block %}
+        {# place holder for the review template #}
+    {% endblock %}
+
+    <div id="detail-container" class="container df-content-container">
+
+        <!-- header -->
+        <div class="page-header">
+            <h1>{{ post.title }}</h1>
+            <p class="df-content-note">
+                {% block detail-date %}
+                    {{ post.approve_datetime|date:"Y-m-d D" }}
+                {% endblock %}
+                &nbsp;
+                {% if post.is_original %}
+                    {% if post.author %}
+                        post.author
+                    {% else %}
+                        匿名作者
+                    {% endif %}
+                {% else %}
+                    本文由匿名用户上传
+                    {% if post.author %}
+                        , 原文作者{{ post.author }}
+                    {% endif %}
+
+                    {% if post.source_url %}
+                        {% if post.source_name %}
+                            , <a href="{{ post.source_url }}" target="_blank">原文链接</a>
+                        {% else %}
+                            , 原文来自<a href="{{ post.source_url }}" target="_blank">{{ post.source_name }}</a>
+                        {% endif %}
+                    {% endif %}
+                    。
+                {% endif %}
+            </p>
+        </div>
+
+        <!-- body -->
+        <div class="df-content">
+            {# main contents #}
+            {% if post.category.id == 1 or post.category.id == 4 %}
+                {# Article and Stuff detail display #}
+
+                {% autoescape off %}    {# Content, turn off auto html escape #}
+                   <p>{{ post.content.body }}</p>
+                {% endautoescape %}
+
+            {% elif post.category.id == 2 %}
+                {# Image detail display #}
+
+                {% include "posts/components/gallery.html" with img_urls=img_urls %}
+
+            {% elif post.category.id == 3 %}
+                {# Video detail display #}
+
+                <iframe
+                src="{{ post.content.body }}">
+                </iframe>
+            {% endif %}
+
+            {# content footer #}
+            {% if post.category.id == 4 %}
+                <a href="{{ post.source_url }}" target="_blank">
+                    <button class="btn df-btn red">去购买</button>
+                </a>
+            {% endif %}
+        </div>
+
+        <!-- recommendation -->
+        {% if recommends %}
+            <div class="page-header">
+                <h3><small>推荐</small></h3>
+            </div>
+            {% for rc in recommends %}
+                <div class="df-card-wrapper col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    {% include 'posts/components/card.html' with post=rc %}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div><!-- end container -->
+
+{% endblock %}
+
+{# js #}
+{% block tail_js %}
+    <script src="{% static "js/detail.js" %}"></script> <!-- main js -->
+{% endblock %}

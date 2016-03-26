@@ -1,0 +1,19 @@
+{% extends 'posts/base.html' %}
+
+{# page title #}
+{% block head_title %} DasFun | 保存出错 {% endblock %}
+
+{# page header #}
+{% block main_header %}
+    {% include "posts/review/review_header.html" %}
+{% endblock main_header %}
+
+{# page body #}
+{% block main_body %}
+
+    <div class="container">
+        <div class="jumbotron">
+          <h2>审核结果保存出错. <i class="red fa fa-exclamation-triangle"></i></h2>
+        </div>
+    </div>
+{% endblock %}

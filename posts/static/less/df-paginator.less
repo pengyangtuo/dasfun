@@ -1,0 +1,109 @@
+.df-paginator-center{
+  text-align: center;
+
+  .df-paginator{
+    display: inline-block;
+  }
+}
+.df-paginator{
+  margin: 10px auto;
+  list-style: none;
+  width: auto;
+  padding: 0px;
+
+  li{
+    @size: 50px;
+    @font-size: 16px;
+
+    position: relative;
+    height: @size;
+    width: @size;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+
+    a{
+      display: block;
+      height: @size;
+      width: @size;
+      line-height: @size;
+      text-align: center;
+      vertical-align: middle;
+      font-size: @font-size;
+      position: absolute;
+
+      .fa{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: @font-size;
+        margin-left: -@font-size / 2;
+        margin-top: -@font-size / 2;
+      }
+    }
+  }
+
+  li:hover{
+    background-color: @gray;
+    a {
+      color: white;
+    }
+  }
+
+  li.selected{
+    background-color: @pink;
+
+    a{
+      color: white;
+    }
+  }
+
+  li.disabled{
+    &:hover{
+      background-color: transparent;
+    }
+
+    a{
+      color: @gray;
+      pointer-events: none;
+    }
+  }
+}
+
+/* iPhone 6 */
+@media (max-width: 768px){
+  .df-paginator{
+    li{
+      @size: 40px;
+
+      height: @size;
+      width: @size;
+      margin: 2px;
+
+      a{
+        height: @size;
+        width: @size;
+        line-height: @size;
+      }
+    }
+  }
+}
+
+/* iphone 5 */
+@media (max-width: 320px){
+  .df-paginator{
+    li{
+      @size: 35px;
+
+      height: @size;
+      width: @size;
+      margin: 1px;
+
+      a{
+        height: @size;
+        width: @size;
+        line-height: @size;
+      }
+    }
+  }
+}

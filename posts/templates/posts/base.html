@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    <!-- META TAGS -->
+    {% block head_meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock head_meta %}
+
+    <!-- PAGE TITLE -->
+    <title>
+    {% block head_title %} dasfun {% endblock %}
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "image/short-cut-icon.png" %}" />
+
+    <!-- LINK FOR CSS -->
+    {% block head_link %}
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{% static "lib/bootstrap/css/bootstrap.min.css" %}">
+        <!-- font awesome css -->
+        <link rel="stylesheet" href="{% static "lib/fontawesome/css/font-awesome.min.css" %}">
+        <!-- qeditor css -->
+        <link rel="stylesheet" href="{% static "lib/qeditor/css/jquery.qeditor.css" %}">
+        <!-- Main style sheet -->
+        <link rel="stylesheet" href="{% static "css/df-style.css" %}"/>
+    {% endblock head_link %}
+
+    <!-- Fix for IE console error -->
+    <script type="text/javascript"> if (!window.console) console = {log: function() {}}; </script>
+
+    <!-- CUSTOM JS FOR SPECIFIC PAGE -->
+    {% block head_js %}
+    {% endblock head_js %}
+
+</head>
+<body>
+    <!-- main site content -->
+    <div class="main-wrapper">
+        <!-- Image for Wechat sharing -->
+        <img src="{% static "image/share-icon.png" %}" style="position:absolute; left:-2000px; top:-2000px;">
+
+        <!-- HEADER -->
+        {% block main_header %}
+            {% include "posts/header.html" %}
+        {% endblock main_header %}
+
+        <!-- BODY -->
+        {% block main_body %}
+            <!-- to be inserted -->
+        {% endblock main_body %}
+
+        <!-- FOOTER -->
+        {% block main_footer %}
+            {% include "posts/footer.html" %}
+        {% endblock main_footer %}
+    </div>
+
+    <!-- STATIC JS -->
+    <script src="{% static "lib/jquery/jquery.min.js" %}"></script> <!-- JQuery -->
+    <script src="{% static "lib/qrcode/jquery.qrcode.min.js" %}"></script> <!-- qrcode generator -->
+    <script src="{% static "lib/bootstrap/js/bootstrap.min.js" %}"></script> <!-- Bootstrap -->
+    <script src="{% static "js/util.js" %}"></script> <!-- utility functions -->
+    <script src="{% static "js/main.js" %}"></script> <!-- main js -->
+
+    <!-- CUSTOM JS AT THE END OF PAGE -->
+    {% block tail_js %}
+    {% endblock tail_js %}
+
+</body>
+</html>

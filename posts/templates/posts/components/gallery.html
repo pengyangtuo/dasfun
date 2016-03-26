@@ -1,0 +1,23 @@
+
+<div class="df-gallery">
+    <div class="fimg-wrapper">
+        <div class="fimg">
+            <img id="detail-full-img" src="{{ img_urls.0 }}">
+        </div>
+    </div>
+
+    {% if img_urls|length > 1 %}
+        <div class="timg-wrapper clearfix">
+            {% for url in img_urls %}
+                <div class="timg
+                    {% if forloop.first %}
+                        active
+                    {% endif %}
+                ">
+                    <img src="{{ url }}">
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>

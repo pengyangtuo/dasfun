@@ -1,0 +1,115 @@
+#submit-page-container{
+
+}
+
+/* general form setup */
+#post-form{
+  #article-section,
+  #img-section,
+  #video-section{
+    visibility: hidden;
+    display: none;
+  }
+}
+
+/* article form */
+#post-form.article{
+  #article-section{
+    visibility: visible;
+    display: block;
+  }
+}
+
+/* image form */
+#post-form.image{
+  #img-section{
+    visibility: visible;
+    display: block;
+    display: block;
+    position: relative;
+    height: auto;
+
+    div.image-list{
+      display: block;
+    }
+
+    div.img-placeholder{
+      @size: 144px;
+      position: relative;
+      float: left;
+      margin-right: 25px;
+      margin-bottom: 25px;
+      display: inline-block;
+      height: @size;
+      width: @size;
+
+      img{
+        height: @size;
+        width: @size;
+        border: dashed 4px transparent;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="file"]{
+        position:absolute;
+        left: -999px;
+      }
+
+      .img-delete{
+        @d-size: 22px;
+
+        height:@d-size;
+        width:@d-size;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: @disable-text-color;
+        cursor: pointer;
+        font-size: @d-size;
+        opacity: 0;
+
+        &:hover{
+          color: @red;
+        }
+
+        &:active{
+          opacity: 0.8;
+        }
+      }
+
+      &:hover{
+        img{
+          border-color: @disable-text-color;
+        }
+
+        .img-delete{
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* video form */
+#post-form.video{
+  #video-section{
+    visibility: visible;
+    display: block;
+  }
+}
+
+/* stuff form */
+#post-form.stuff{
+  #article-section{
+    visibility: visible;
+    display: block;
+  }
+}
+
+.qeditor_preview{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
